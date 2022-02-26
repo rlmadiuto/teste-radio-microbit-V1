@@ -151,6 +151,15 @@ function shakeshake () {
     basic.clearScreen()
     explode()
 }
+radio.onReceivedNumber(function (receivedNumber) {
+    basic.showNumber(receivedNumber)
+    basic.pause(50)
+    if (9 == receivedNumber) {
+        radio.sendValue("fim", 1)
+    } else {
+        radio.sendNumber(receivedNumber + 1)
+    }
+})
 input.onButtonPressed(Button.A, function () {
     basic.showString("A")
     bta += 1
